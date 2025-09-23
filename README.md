@@ -41,12 +41,4 @@ curl https://example.com/cloudfront/service/xRNX3LlEUCVrSqtRtQ6r58 -X POST -data
 curl http://localhost:7676/cloudfront/service/xRNX3LlEUCVrSqtRtQ6r58 -X POST -data-binary @cloudfront.json -H Fastly-Key:IxWZk_U-HxxuMW8X8v_x8mC5QrnHo4nx
 ```
 
-## For CSV data format
-
-Cloudfront UI users are working with CSV data format. When the format is used `?format=` query parameter must be used with `csv` value, eg
-
-```shell
-curl http://localhost:7676/cloudfront/service/xRNX3LlEUCVrSqtRtQ6r58?format=csv -X POST -data-binary @cloudfront.csv -H Fastly-Key:IxWZk_U-HxxuMW8X8v_x8mC5QrnHo4nx
-```
-
 (The `sid` and `Fastly-Key` are not real and provided only for the usage demonstration only. Please use your own SIDs and keys.)
