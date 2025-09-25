@@ -58,9 +58,13 @@ router.post("/cloudfront/service/:serviceId([^/]+)", async (req, res) => {
       unset req.http.new_ttl;
     }\n
     # parse request and set backend, ttl and hashing headers
-    set req.backend = parse_and_route();\n`;
+    set req.backend = parse_and_route();
+    # pass if that was the indication from parse_and_route
+    if (req.http.is_pass == "true") {
+      return(pass);
+    }\n`;
   let fetch_sub = `  # fetch sub\n
-    if (req.http.is_pass || beresp.http.Expires || beresp.http.Surrogate-Control ~ "max-age" || beresp.http.Cache-Control ~ "(?:s-maxage|max-age)") {
+    if (req.http.is_pass == "true" || beresp.http.Expires || beresp.http.Surrogate-Control ~ "max-age" || beresp.http.Cache-Control ~ "(?:s-maxage|max-age)") {
       # keep the ttl here
     } else {
       # set new TTL and cache headers
