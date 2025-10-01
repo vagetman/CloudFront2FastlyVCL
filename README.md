@@ -1,6 +1,10 @@
 # CloudFront2VCL
 
-The Fastly C@E app performs conversion of JSON config from CloudFront to Fastly VCL snippets and installs them to a destination service .
+The Fastly Compute app performs conversion of JSON config from CloudFront to Fastly VCL snippets and installs them to a destination service.
+
+# Prerequisite
+
+To you the coverter tool you first need to extract your CloudFront configuration into a JSON. Use the `cloudfront-export` tool and save the configuration into a JSON file. When you have that you can use the JSON to create a VCL.
 
 # Installation
 
